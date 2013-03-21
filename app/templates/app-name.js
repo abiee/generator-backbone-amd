@@ -1,13 +1,13 @@
 define(['backbone'], function () {
-    <%= projectname %> = {
+    <%= _.classify(appname) %> = {
         init: function () {
             // initialize router, views, data and layouts
         },
         start: function () {
-            <%= projectname %>.init();
+            <%= _.classify(appname) %>.init();
             Backbone.history.start();
         }
     }
 
-    return <%= projectname %>;
+    return <%= _.classify(appname) %>;
 });

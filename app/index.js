@@ -1,16 +1,14 @@
 var generator = require('yeoman-generator');
 var util      = require('util');
 var path      = require('path');
+var _         = require('underscore.string');
 
 // Documentation: https://github.com/yeoman/generator/wiki/base
 
 var Generator = module.exports = function Generator() {
   generator.Base.apply(this, arguments);
-  // this.option('flag', { desc: 'Desc for flag', ...})
-  // this.argument('filename', { desc: 'Desc for filename argument', ...})
-  this.projectname = this.appname.replace(/(\s\w|^\w)/g, function($1){return $1.toUpperCase().replace(' ','');});
   this.indexFile = this.readFileAsString(path.join(this.sourceRoot(), 'index.html'));
-  this.mainJsFile = this.readFileAsString(path.join(this.sourceRoot(), 'app/scripts/main.js'));
+  this.mainJsFile = this.readFileAsString(path.join(this.sourceRoot(), 'main.js'));
 };
 
 util.inherits(Generator, generator.Base);
@@ -116,7 +114,7 @@ Generator.prototype.writeIndex = function writeIndex() {
     '                <p>You now have</p>',
     '                <ul>'
   ];
-
+var _s = require('underscore.string');
   if (this.includeRequireJS) {
     defaults.push('RequireJS');
   } else {
@@ -184,5 +182,5 @@ Generator.prototype.setupEnv = function setupEnv() {
   this.mkdir('app/images');
   this.write('app/index.html', this.indexFile);
   this.write('app/scripts/main.js', this.engine(this.mainJsFile, this));
-  this.copy('app/scripts/app.js', 'app/scripts/' + this.projectname + ".js");
+  this.copy('app-name.js', 'app/scripts/' + _.classify(this.appname) + ".js");
 };
