@@ -13,4 +13,4 @@ You can install this generator by two ways, clonning repo and linking or install
 
 Or to install by npm run:
 
-   $ npm install https://github.com/Abiee/generator-backbone-amd.git
+    $ npm install https://github.com/Abiee/generator-backbone-amd.git
