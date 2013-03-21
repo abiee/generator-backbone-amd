@@ -6,7 +6,11 @@ define(['backbone'], function () {
         start: function () {
             <%= _.classify(appname) %>.init();
             Backbone.history.start();
-        }
+        },
+        Views: {},
+        Models: {},
+        Collections: {},
+        Routers: {}
     }
 
     return <%= _.classify(appname) %>;
