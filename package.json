@@ -1,0 +1,29 @@
+{
+  "name" : "generator-backbone-amd",
+  "version" : "0.0.1",
+  "keywords": [
+    "yeoman-generator",
+    "yeoman",
+    "generator",
+    "framework",
+    "mvc"
+  ],
+  "homepage": "https://github.com/Abiee/generator-backbone-amd",
+  "bugs": "https://github.com/Abiee/generator-backbone-amd/issues",
+  "author": "Abiee Alejandro Echamea Márquez",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Abiee/generator-backbone-amd.git"
+  },
+  "dependencies": {
+    "yeoman-generator": "~0.10.2"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "licenses": [
+    {
+      "type": "BSD"
+    }
+  ]
+}
