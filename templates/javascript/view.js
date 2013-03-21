@@ -4,5 +4,5 @@ define(['<%= _.classify(appname) %>'], function(<%= _.classify(appname) %>){
   });
 
   <%= _.classify(appname) %>.Views.<%= _.classify(name) %>View = <%= _.classify(name) %>View;
-  return  <%= _.classify(name) %>View;
+  return <%= _.classify(name) %>View;
 });

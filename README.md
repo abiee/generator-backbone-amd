@@ -21,6 +21,12 @@ To bootstrap a new project simply run
 
     $ yo backbone-amd
 
+Create model
+------------
+To add a Backbone model to the project use the model generator like this
+
+    $ yo backbone-amd:model model-name
+
 Add views
 ---------
 Backbone works with view definitions, to create one use this command
