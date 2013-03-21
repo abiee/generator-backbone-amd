@@ -27,6 +27,20 @@ To add a Backbone model to the project use the model generator like this
 
     $ yo backbone-amd:model model-name
 
+Create collection
+-----------------
+To add a Backbone collection to the project use collection generator
+
+    $ yo backbone-amd:collection collection-name
+
+You can link the collection with an existent model
+
+    $ yo backbone-amd:collection collection-name model-name
+
+Or may be you want to create both, model and collection on one step
+
+    $ yo backbone-amd:collection collection-name model-name --create-model
+
 Add views
 ---------
 Backbone works with view definitions, to create one use this command

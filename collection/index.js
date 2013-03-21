@@ -9,12 +9,19 @@ function Generator() {
   generator.NamedBase.apply(this, arguments);
   var dirPath = this.options.coffee ? '../templates/coffeescript/' : '../templates/javascript';
   this.sourceRoot(path.join(__dirname, dirPath));
+  this.argument('model', { type: String, required: false });
+  this.option('create-model', { desc: 'Create a new model for this collection' });
   this.option('coffee', { desc: 'CoffeeScript instead standard JavaScript' });
+
+  if (this.model && this.options['create-model']) {
+    // TODO: pass --coffee option to model if coffee was enabled
+    this.hookFor('backbone-amd', { as: 'model', args: [this.model], options: this.options })
+  }
 }
 
 util.inherits(Generator, generator.NamedBase);
 
-Generator.prototype.createModelFiles = function createModelFiles() {
+Generator.prototype.createViewFiles = function createViewFiles() {
   var ext = this.options.coffee ? 'coffee' : 'js';
-  this.template('model.' + ext, path.join('app/scripts/models', this.name + '-model.' + ext));
+  this.template('collection.' + ext, path.join('app/scripts/collections', this.name + '-collection.' + ext));
 };
