@@ -114,11 +114,8 @@ Generator.prototype.writeIndex = function writeIndex() {
     '                <p>You now have</p>',
     '                <ul>'
   ];
-var _s = require('underscore.string');
   if (this.includeRequireJS) {
     defaults.push('RequireJS');
-  } else {
-    this.mainJsFile = 'console.log(\'\\\'Allo \\\'Allo!\');';
   }
 
   // iterate over defaults and create content string
