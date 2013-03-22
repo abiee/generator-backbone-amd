@@ -9,6 +9,7 @@ function Generator() {
   generator.NamedBase.apply(this, arguments);
   var dirPath = this.options.coffee ? '../templates/coffeescript/' : '../templates/javascript';
   this.sourceRoot(path.join(__dirname, dirPath));
+  this.option('coffee', { desc: 'CoffeeScript instead standard JavaScript' });
 }
 
 util.inherits(Generator, generator.NamedBase);
