@@ -8,12 +8,12 @@
     "framework",
     "mvc"
   ],
-  "homepage": "https://github.com/Abiee/generator-backbone-amd",
-  "bugs": "https://github.com/Abiee/generator-backbone-amd/issues",
+  "homepage": "https://github.com/abiee/generator-backbone-amd",
+  "bugs": "https://github.com/abiee/generator-backbone-amd/issues",
   "author": "Abiee Alejandro Echamea Márquez",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Abiee/generator-backbone-amd.git"
+    "url": "https://github.com/abiee/generator-backbone-amd.git"
   },
   "scripts": {
     "test": "mocha --reporter spec"
