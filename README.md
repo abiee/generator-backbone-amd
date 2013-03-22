@@ -41,12 +41,22 @@ Or may be you want to create both, model and collection on one step
 
     $ yo backbone-amd:collection collection-name model-name --create-model
 
-Add views
----------
+Create views
+------------
 Backbone works with view definitions, to create one use this command
 
-    $ yo backbone-amd:view view-name-here
+    $ yo backbone-amd:view view-name
 
 If you prefer CoffeeScript instead just add --coffee flag
 
-    $ yo backbone-amd:view view-name-here --coffee
+    $ yo backbone-amd:view view-name --coffee
+
+Create routers
+--------------
+You can generate routers too with
+
+    $ yo backbone-amd:router router-name
+
+Or with coffee option
+
+    $ yo backbone-amd:router router-name --coffee
