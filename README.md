@@ -60,3 +60,13 @@ You can generate routers too with
 Or with coffee option
 
     $ yo backbone-amd:router router-name --coffee
+
+Testing
+-------
+Default test framework for this generator is buster.js but you cant specify another like mocha
+
+    $ yo backbone-amd --test-framework=mocha
+
+But if you work with buster you have to do a couple of things first. Due buster framework issues you have to install node 0.9.9, at this time don't work with node 0.10.0 and ensure to install globally buster and plantomjs:
+
+    $ npm install -g buster phantomjs

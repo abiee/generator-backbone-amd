@@ -102,6 +102,21 @@ module.exports = function (grunt) {
         'test/spec/{,*/}*.js'
       ]
     },
+    <% if (testFramework == 'buster') { %>buster: {
+      test: {
+        config: 'test/buster.js'
+      },
+      server: {
+        port: 1111
+      }
+    },<% } else if(testFramework == 'mocha') {%>mocha: {
+      all: {
+        options: {
+          run: true,
+          urls: ['http://localhost:<%%= connect.options.port %>/index.html']
+        }
+      }
+    },<% } %>
     coffee: {
       dist: {
         files: [{
@@ -256,6 +271,15 @@ module.exports = function (grunt) {
     'copy',
     'usemin'
   ]);
+
+  grunt.registerTask('test', [
+    'clean:server',
+    'coffee',
+    'compass',
+    'connect:test',
+    '<%= testFramework %>'
+  ]);
+
 
   grunt.registerTask('default', [
     'jshint',

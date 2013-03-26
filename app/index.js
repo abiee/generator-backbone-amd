@@ -3,10 +3,21 @@ var util      = require('util');
 var path      = require('path');
 var _         = require('underscore.string');
 
-// Documentation: https://github.com/yeoman/generator/wiki/base
-
 var Generator = module.exports = function Generator() {
   generator.Base.apply(this, arguments);
+
+  this.option('test-framework', { type: String, desc: 'Test framework to use', default: 'buster' });
+  
+  this.testFramework = this.options['test-framework'] || 'buster';
+
+  // for hooks to resolve on mocha by default
+  if (!this.options['test-framework']) {
+    this.options['test-framework'] = 'buster';
+  }
+
+  // resolved to mocha by default (could be switched to jasmine for instance)
+  this.hookFor('test-framework', { as: 'app' });
+
   this.indexFile = this.readFileAsString(path.join(this.sourceRoot(), 'index.html'));
   this.mainJsFile = this.readFileAsString(path.join(this.sourceRoot(), 'main.js'));
 };
