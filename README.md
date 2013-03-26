@@ -70,3 +70,5 @@ Default test framework for this generator is buster.js but you cant specify anot
 But if you work with buster you have to do a couple of things first. Due buster framework issues you have to install node 0.9.9, at this time don't work with node 0.10.0 and ensure to install globally buster and plantomjs:
 
     $ npm install -g buster phantomjs
+
+Instructions to install generator-buster follow this link https://github.com/abiee/generator-buster
