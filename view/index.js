@@ -17,5 +17,5 @@ util.inherits(Generator, generator.NamedBase);
 Generator.prototype.createViewFiles = function createViewFiles() {
   // TODO: Add template
   var ext = this.options.coffee ? 'coffee' : 'js';
-  this.template('view.' + ext, path.join('app/scripts/views', this.name + '-view.' + ext));
+  this.template('view.' + ext, path.join('app/scripts/views', this.name + '.' + ext));
 };

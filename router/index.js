@@ -17,5 +17,5 @@ util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createViewFiles = function createViewFiles() {
   var ext = this.options.coffee ? 'coffee' : 'js';
-  this.template('router.' + ext, path.join('app/scripts/routers', this.name + '-router.' + ext));
+  this.template('router.' + ext, path.join('app/scripts/routers', this.name + '.' + ext));
 };

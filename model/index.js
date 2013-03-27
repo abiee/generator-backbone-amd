@@ -16,5 +16,5 @@ util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createModelFiles = function createModelFiles() {
   var ext = this.options.coffee ? 'coffee' : 'js';
-  this.template('model.' + ext, path.join('app/scripts/models', this.name + '-model.' + ext));
+  this.template('model.' + ext, path.join('app/scripts/models', this.name + '.' + ext));
 };

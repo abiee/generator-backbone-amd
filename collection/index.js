@@ -23,5 +23,5 @@ util.inherits(Generator, generator.NamedBase);
 
 Generator.prototype.createViewFiles = function createViewFiles() {
   var ext = this.options.coffee ? 'coffee' : 'js';
-  this.template('collection.' + ext, path.join('app/scripts/collections', this.name + '-collection.' + ext));
+  this.template('collection.' + ext, path.join('app/scripts/collections', this.name + '.' + ext));
 };
