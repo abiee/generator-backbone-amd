@@ -190,5 +190,5 @@ Generator.prototype.setupEnv = function setupEnv() {
   this.mkdir('app/images');
   this.write('app/index.html', this.indexFile);
   this.write('app/scripts/main.js', this.engine(this.mainJsFile, this));
-  this.copy('app-name.js', 'app/scripts/' + _.classify(this.appname) + ".js");
+  this.copy('app-name.js', 'app/scripts/' + _.slugify(this.appname) + ".js");
 };

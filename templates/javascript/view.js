@@ -1,4 +1,4 @@
-define(['<%= _.classify(appname) %>'], function(<%= _.classify(appname) %>){
+define(['<%= _.slugify(appname) %>'], function(<%= _.classify(appname) %>){
   var <%= _.classify(name) %>View = Backbone.View.extend({
     template: <%= _.underscored(name) %>
   });

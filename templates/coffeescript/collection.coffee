@@ -1,4 +1,4 @@
-define ['<%= _.classify(appname) %>'<% if (!_.isEmpty(model)) { %>, 'models/<%= model %>-model'<% } %>], (<%= _.classify(appname) %>) ->
+define ['<%= _.slugify(appname) %>'<% if (!_.isEmpty(model)) { %>, 'models/<%= model %>-model'<% } %>], (<%= _.classify(appname) %>) ->
   class <%= _.classify(name) %>Collection extends Backbone.Collection
     <% if (!_.isEmpty(model)) { %>model: <%= _.classify(appname) %>.Models.<%= _.classify(model) %>Model<% } %>
 

@@ -1,4 +1,4 @@
-define ['<%= _.classify(appname) %>'], (<%= _.classify(appname) %>) ->
+define ['<%= _.slugify(appname) %>'], (<%= _.classify(appname) %>) ->
   class <%= _.classify(name) %>View extends Backbone.View
     template: <%= _.underscored(name) %>
 
