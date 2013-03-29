@@ -64,10 +64,26 @@ describe('Backbone AMD generator test', function () {
 
   it('include requirejs', function(done) {
     var expected = [
-      ['app/scripts/main.js', /require.config\(\{[\w\W\s]+'temp',\s+'jquery',\s+/],
       ['component.json', /"requirejs"/],
-      ['app/index.html', /<script data-main=\"scripts\/main\" src=\"components\/requirejs\/require\.js\">/]
+      ['package.json', /"name": "temp"/],
+      'Gruntfile.js',
+      'app/404.html',
+      'app/favicon.ico',
+      'app/robots.txt',
+      ['app/index.html', /<script data-main=\"scripts\/main\" src=\"components\/requirejs\/require\.js\">/],
+      'app/.htaccess',
+      '.gitignore',
+      '.gitattributes',
+      ['.bowerrc', /"directory": "app\/components"/],
+      ['component.json', /"name":\s+"temp"/],
+      '.jshintrc',
+      '.editorconfig',
+      'Gruntfile.js',
+      'package.json',
+      ['app/scripts/main.js', /require.config\(\{[\w\W\s]+'temp',\s+'jquery',\s+/],
+      ['app/scripts/temp.js', /Temp\s+=\s+[\w\W\s]+Views[\w\W\s]+Models[\w\W\s]+Collections[\w\W\s]+Routers/]
     ];
+
     helpers.mockPrompt(backbone, {
       'compassBootstrap': 'Y',
       'includeRequireJS': 'Y'

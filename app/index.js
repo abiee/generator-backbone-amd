@@ -7,6 +7,7 @@ var Generator = module.exports = function Generator() {
   generator.Base.apply(this, arguments);
 
   this.option('test-framework', { type: String, desc: 'Test framework to use', default: 'buster' });
+  this.option('coffee', { desc: 'CoffeeScript instead standard JavaScript' });
   
   this.testFramework = this.options['test-framework'] || 'buster';
 
@@ -18,8 +19,9 @@ var Generator = module.exports = function Generator() {
   // resolved to mocha by default (could be switched to jasmine for instance)
   this.hookFor('test-framework', { as: 'app' });
 
+  var ext = this.options.coffee ? 'coffee' : 'js';
   this.indexFile = this.readFileAsString(path.join(this.sourceRoot(), 'index.html'));
-  this.mainJsFile = this.readFileAsString(path.join(this.sourceRoot(), 'main.js'));
+  this.mainJsFile = this.readFileAsString(path.join(this.sourceRoot(), 'main.' + ext));
 };
 
 util.inherits(Generator, generator.Base);
@@ -155,40 +157,63 @@ Generator.prototype.requirejs = function requirejs() {
       'data-main': 'scripts/main'
     });
 
-    this.mainJsFile = [
-       'require.config({',
-      '    paths: {',
-      '        jquery: \'../components/jquery/jquery\',',
-      '        underscore: \'../components/underscore/underscore\',',
-      '        backbone: \'../components/backbone/backbone\',',
-      '        bootstrap: \'vendor/bootstrap\'',
-      '    },',
-      '    shim: {',
-      '        underscore: {',
-      '            exports: \'_\'',
-      '        },',
-      '        backbone: {',
-      '            deps: [\'jquery\', \'underscore\'],',
-      '            exports: \'Backbone\'',
-      '        },',
-      '        bootstrap: {',
-      '            deps: [\'jquery\'],',
-      '            exports: \'jquery\'',
-      '        }',
-      '    }',
-      '});',
-      '',
-      this.mainJsFile
-    ].join('\n');
+    if (this.options.coffee) {
+      this.mainJsFile = [
+        'require.config(',
+        '    paths:',
+        '        jquery: \'../components/jquery/jquery\'',
+        '        underscore: \'../components/underscore/underscore\'',
+        '        backbone: \'../components/backbone/backbone\'',
+        '        bootstrap: \'vendor/bootstrap\'',
+        '    shim:',
+        '        underscore:',
+        '            exports: \'_\'',
+        '        backbone:',
+        '            deps: [\'jquery\', \'underscore\']',
+        '            exports: \'Backbone\'',
+        '        bootstrap:',
+        '            deps: [\'jquery\']',
+        '            exports: \'jquery\'',
+        ')',
+        this.mainJsFile
+      ].join('\n');
+    } else {
+      this.mainJsFile = [
+         'require.config({',
+        '    paths: {',
+        '        jquery: \'../components/jquery/jquery\',',
+        '        underscore: \'../components/underscore/underscore\',',
+        '        backbone: \'../components/backbone/backbone\',',
+        '        bootstrap: \'vendor/bootstrap\'',
+        '    },',
+        '    shim: {',
+        '        underscore: {',
+        '            exports: \'_\'',
+        '        },',
+        '        backbone: {',
+        '            deps: [\'jquery\', \'underscore\'],',
+        '            exports: \'Backbone\'',
+        '        },',
+        '        bootstrap: {',
+        '            deps: [\'jquery\'],',
+        '            exports: \'jquery\'',
+        '        }',
+        '    }',
+        '});',
+        '',
+        this.mainJsFile
+      ].join('\n');
+    }
   }
 };
 
 Generator.prototype.setupEnv = function setupEnv() {
+  var ext = this.options.coffee ? 'coffee' : 'js';
   this.mkdir('app');
   this.mkdir('app/scripts');
   this.mkdir('app/styles');
   this.mkdir('app/images');
   this.write('app/index.html', this.indexFile);
-  this.write('app/scripts/main.js', this.engine(this.mainJsFile, this));
-  this.copy('app-name.js', 'app/scripts/' + _.slugify(this.appname) + ".js");
+  this.write('app/scripts/main.' + ext, this.engine(this.mainJsFile, this));
+  this.copy('app-name.' + ext, 'app/scripts/' + _.slugify(this.appname) + "." + ext);
 };
