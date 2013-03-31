@@ -18,10 +18,12 @@
     "grunt-contrib-livereload": "0.1.1",
     "grunt-bower-hooks": "~0.2.0",
     "grunt-usemin": "~0.1.9",
-    "grunt-regarde": "~0.1.1",<% if (testFramework == 'buster') {%>
+    "grunt-regarde": "~0.1.1",<% if (includeRequireJS) { %>
+    "grunt-requirejs": "~0.3.2",<% } %><% if (testFramework == 'buster') {%>
     "grunt-buster": "~0.1.2",<% } else if(testFramework == 'mocha') {%>
     "grunt-mocha": "~0.2.2",<% } %>
     "grunt-open": "~0.2.0",
+    "grunt-svgmin": "0.1.0",
     "matchdep": "~0.1.1"
   },
   "engines": {
