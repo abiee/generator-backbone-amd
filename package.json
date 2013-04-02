@@ -1,6 +1,6 @@
 {
   "name" : "generator-backbone-amd",
-  "version" : "0.0.1",
+  "version" : "0.0.2",
   "keywords": [
     "yeoman-generator",
     "yeoman",
@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "yeoman-generator": "~0.10.2",
-    "underscore.string": "~2.3.1"
+    "underscore.string": "~2.3.1",
+    "generator-buster": "~0.0.1"
   },
   "devDependencies": {
     "mocha": "~1.8.1"
