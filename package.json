@@ -1,12 +1,14 @@
 {
   "name" : "generator-backbone-amd",
-  "version" : "0.0.2",
+  "version" : "0.0.4",
   "keywords": [
     "yeoman-generator",
-    "yeoman",
-    "generator",
-    "framework",
-    "mvc"
+    "web",
+    "front-end",
+    "scaffold",
+    "marionette",
+    "backbone",
+    "coffescript"
   ],
   "homepage": "https://github.com/abiee/generator-backbone-amd",
   "bugs": "https://github.com/abiee/generator-backbone-amd/issues",
@@ -19,15 +21,19 @@
     "test": "mocha --reporter spec"
   },
   "dependencies": {
-    "yeoman-generator": "~0.10.2",
-    "underscore.string": "~2.3.1",
-    "generator-buster": "~0.0.1"
+    "yeoman-generator": "~0.13.1",
+    "underscore.string": "~2.3.1"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0-rc.1.1",
+    "generator-mocha": "~0.1.1"
   },
   "devDependencies": {
-    "mocha": "~1.8.1"
+    "mocha": "~1.9.0"
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=0.8.0",
+    "npm": ">=1.2.10"
   },
   "licenses": [
     {
