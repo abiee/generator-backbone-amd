@@ -46,11 +46,11 @@ AppGenerator.prototype.askFor = function() {
   var prompts = [{
     type: 'list',
     name: 'bootstrapFlavor',
-    message: 'Would you like to include Twitter Bootstrap?',
+    message: 'Would you like to include Bootstrap?',
     choices: [
       {'name':'yes, for Sass', value:'sass'},
       {'name':'yes, for Less', value:'less'},
-      {'name':'no, without Twitter Bootstrap', value:'none'}
+      {'name':'no, without Bootstrap', value:'none'}
     ],
     default: 'sass'
   },
@@ -167,7 +167,7 @@ AppGenerator.prototype.writeIndex = function writeIndex() {
     });
   }
 
-  // wire Twitter Bootstrap plugins
+  // wire Bootstrap plugins
   if (this.bootstrapFlavor !== 'none') {
     var dirName = this.bootstrapFlavor == 'sass' ? 'sass-bootstrap' : 'bootstrap'
     this.indexFile = this.appendScripts(this.indexFile, 'scripts/plugins.js', [
