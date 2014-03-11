@@ -24,6 +24,7 @@ app/bower_components
 ### Linux ###
 .*
 !.gitignore
+!.bowerrc
 !.git*
 !.editorconfig
 !.jshintrc
